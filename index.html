@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficos de Obesidade por Estado</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Gráfico de barras com todos os estados -->
+    <div id="bar-chart-all"></div>
+
+    <!-- Gráfico de barras com os cinco estados com maior obesidade -->
+    <div id="bar-chart-top"></div>
+
+    <!-- Gráfico de barras com os cinco estados com menor obesidade -->
+    <div id="bar-chart-bottom"></div>
+
+    <!-- Gráfico de barras adicionado -->
+    <div id="bar-chart-2"></div>
+
+    <!-- Gráfico de dispersão adicionado -->
+    <div id="scatter-plot"></div>
+
+    <!-- Cópia do gráfico de barras -->
+    <div id="bar-chart-age"></div>
+
+    <!-- Gráfico de pizza -->
+    <div id="pie-chart-obesity"></div>
+    
+    <!-- Gráfico de barras -->
+    <div id="bar-chart-msw"></div>
+
+    <!-- Cópia do gráfico de redes -->
+    <div id="scatter-chart"></div>
+    
+    <div class="divradar">
+        <!-- Gráfico de Radar -->
+            <canvas id="radarChart"></canvas>
+        <script>
+            // Dados de exemplo com as porcentagens de marital-status
+            const dataRadar = {
+                labels: ['Married', 'Single', 'Divorced', 'Separated', 'Widowed'],
+                datasets: [
+                    {
+                        label: 'Porcentagem',
+                        data: [54.617117, 28.265766, 8.671171, 4.391892, 4.054054],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2,
+                    },
+                ],
+            };
+            
+            // Configurações do gráfico de radar
+            const radarChartOptions = {
+                scale: {
+                    angleLines: {
+                        display: true,
+                    },
+                    ticks: {
+                        suggestedMin: 0,
+                        suggestedMax: 100,
+                    },
+                },
+            };
+            
+            // Criar o gráfico de radar
+            const ctx = document.getElementById('radarChart').getContext('2d');
+            const myRadarChart = new Chart(ctx, {
+                type: 'radar',
+                data: dataRadar,
+                options: radarChartOptions,
+            });
+        </script>
+    </div>
+    
+
+    <script src="script.js"></script>
+    
+</body>
+
+
+
+</html>
